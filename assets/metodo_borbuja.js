@@ -1,20 +1,20 @@
-
+//funcion para obtener numeros randoms 
 function randomNumero(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
-function borbuja(array) {
-    var startTime = performance.now();
-    for (let i = array.length - 1; i >= 0; i--) {
+function borbuja(array) { //funcion para hacer el ordenamiento borbuja
+    var startTime = performance.now();//toma el tiempo  inicial de ejecucion
+    for (let i = array.length - 1; i >= 0; i--) {//empieza a hacer el ordenamiento borbuja
         for (let j = 0; j < i; j++) {
             if (array[j] > array[j + 1]) {
-                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];//hace el cambio de elementos
             }
         }
     };
-    var endTime = performance.now();
-    var endTime2=endTime-startTime;
-    return endTime2.toFixed(5);
+    var endTime = performance.now();//toma el tiempo final de ejecucion
+    var endTime2=endTime-startTime;//calcula el tiempo total de milisegundos de ejecucion
+    return endTime2.toFixed(5);//retorna el tiempo de ejecución con solo 5 decimales
 }
 
 function vector(tamano, tamano2) {
@@ -57,8 +57,8 @@ function burbuja() {
     ['Vector 8', tamanoVector[7], tiempoEjecucion[7]],
     ['Vector 9', tamanoVector[8], tiempoEjecucion[8]],
     ['Vector 10', tamanoVector[9], tiempoEjecucion[9]],
-    // Agrega más filas y datos aquí
     ];
+    //vacia todos los datos que contiene la tabla, en dado caso que contenga algo
     while (cuerpoTabla.firstChild) {
         cuerpoTabla.removeChild(cuerpoTabla.firstChild);
     }
@@ -84,7 +84,6 @@ function burbuja() {
     var ctx = document.getElementById('grafica').getContext('2d');
     var canvas = document.getElementById("grafica");
     
-    //ctx.clearRect(0, 0, canvas.width, canvas.height);
     // Datos para el gráfico
     var data = {
         labels: ["Vector 1","Vector 2", "Vector 3" ,"Vector 4" ,"Vector 5" ,"Vector 6" ,"Vector 7","Vector 8","Vector 9", "Vector 10"],//datos de X
