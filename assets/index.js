@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 function pageLoaded() {
     let loaderSection = document.querySelector('.loader-section');       loaderSection.classList.add('loaded');
   }
@@ -19,7 +19,6 @@ function integrantes() {
     `,
     html: '<p>Camacho García Julia Guadalupe<br>Garcia Mayorga Brayan Jair<br>Ramirez Vazquez Wendy Itzel</p>'
   })
-=======
 function pageLoaded() {
     let loaderSection = document.querySelector('.loader-section');       loaderSection.classList.add('loaded');
   }
@@ -40,5 +39,4 @@ function integrantes() {
     `,
     html: '<p>Camacho García Julia Guadalupe<br>Garcia Mayorga Brayan Jair<br>Ramirez Vazquez Wendy Itzel</p>'
   })
->>>>>>> 82728b00d6ea19287c1beeec637d422c5c54214f
 }
