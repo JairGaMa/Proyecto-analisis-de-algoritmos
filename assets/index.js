@@ -3,12 +3,7 @@ function pageLoaded() {
     let loaderSection = document.querySelector('.loader-section');       loaderSection.classList.add('loaded');
   }
   document.onload = pageLoaded();
-/*
-function ordenamiento() {
-    contenido=document.getElementById("contenido")
-    contenido.innerHTML="Hola, mundo";
-}
-*/
+
 function integrantes() {
   Swal.fire({
     title: 'Integrantes del equipo    5EJ',
