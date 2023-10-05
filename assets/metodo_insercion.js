@@ -3,15 +3,19 @@ function randomNumero(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
-function borbuja(array) { //funcion para hacer el ordenamiento borbuja
+function insercion1(array) { //funcion para hacer el ordenamiento borbuja
     var startTime = performance.now();//toma el tiempo  inicial de ejecucion
-    for (let i = array.length - 1; i >= 0; i--) {//empieza a hacer el ordenamiento borbuja
-        for (let j = 0; j < i; j++) {
-            if (array[j] > array[j + 1]) {
-                [array[j], array[j + 1]] = [array[j + 1], array[j]];//hace el cambio de elementos
-            }
+    var i;
+    var llave;
+    for(var j=1; j <array.length; j++){
+        llave=array[j];
+        i=j-1;
+        while(i>=0 && array[i]>llave){
+            array[i+1]=array[i];
+            i--;
         }
-    };
+        array[i+1]=llave;
+    }
     var endTime = performance.now();//toma el tiempo final de ejecucion
     var endTime2=endTime-startTime;//calcula el tiempo total de milisegundos de ejecucion
     return endTime2.toFixed(5);//retorna el tiempo de ejecución con solo 5 decimales
@@ -26,7 +30,7 @@ function vector(tamano, tamano2) {
 }
 
 
-function burbuja() {
+function insercion2() {
     //obtine el valor ingresado en el elemento input del html
     var valor= document.getElementById("numero").value;
     var tamanoVector=new Array;
@@ -34,7 +38,7 @@ function burbuja() {
     for(var i=0;i<10;i++){
         tamanoVector[i]=valor*(i+1);
         var arreglo=vector(tamanoVector[i],tamanoVector[0]*10);
-        tiempoEjecucion[i]=borbuja(arreglo);
+        tiempoEjecucion[i]=insercion1(arreglo);
         //console.log(arreglo[i]);
         //console.log(tiempoEjecucion[1]);
     }
@@ -91,7 +95,7 @@ function burbuja() {
             {
                 label: 'Tiempo ejecución en milisegundos',
                 data: tiempoEjecucion, // Los valores de tu gráfico
-                borderColor: 'blue', // Color de la línea
+                borderColor: 'green', // Color de la línea
                 borderWidth: 2, // Ancho de la línea
                 fill: true, // Rellenar el área debajo de la línea
             }

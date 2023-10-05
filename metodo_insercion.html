@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto</title>
+  <!--  Estilos de la pagina  -->
+  <link rel="stylesheet" href="library/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="loader-section">
+    <span class="loader"></span>
+  </div>
+
+  <!--  menu de la pagina con sus opciones  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white">
+    <div class="container-fluid">
+      <span class="navbar-brand" href="#">Proyecto - Analisis de algoritmos</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ">
+            <ul class="navbar-nav ">
+              <li class="nav-item dropdown ">
+                <span class=" dropdown-toggle btn btn-light m-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Algoritmos de ordenamiento
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li class="dropdown-item"><a class="dropdown-item" href="metodo_borbuja.html">Método borbuja</a></li>
+                  <li class="dropdown-item"><a class="dropdown-item" href="metodo_insercion.html">Metodo inserción</a></li>
+                  <li class="dropdown-item"><a class="dropdown-item" href="ordenamiento3.html">Algoritmo 3</a></li>
+                  <li class="dropdown-item"><a class="dropdown-item" href="ordenamiento4.html">Algoritmo 4</a></li>
+                  <li class="dropdown-item"><a class="dropdown-item" href="ordenamiento5.html">Algoritmo 5</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <span class=" dropdown-toggle  btn btn-light m-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Algoritmos de busqueda
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li class="dropdown-item"><a class="dropdown-item" href="busqueda1.html">Algoritmo 1</a></li>
+                  <li class="dropdown-item"><a class="dropdown-item" href="busqueda2.html">Algoritmo 2</a></li>
+                  <li class="dropdown-item"><a class="dropdown-item" href="busqueda3.html">Algoritmo 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item ">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <span class=" btn btn-light m-2" onclick="integrantes();">
+                  Integrantes
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--  contenido a presentar -->
+  <div id="contenido" class=" container container-sm mt-5 rounded shadow p-3 bg-white d-flex justify-content-center">
+    <div class="container">
+      <h1>Método inserción</h1>
+        <div class="container row ">
+            <div class="container col-9 d-flex justify-content-center">
+              <label for="numero"><h4>Tamaño Vector</h4></label>
+              <input value="10" type="number" class="form-control shadow" id="numero" min="1" required pattern="[0-9]+" >
+            </div>
+            <div class="container col-3 d-flex justify-content-end">
+              <br>
+              <button type="button" class="btn btn-primary shadow" onclick="insercion2();">Calcular</button>
+            </div>
+        </div>
+      <div class="container mt-5 rounded shadow ">
+        <div class="container row">
+          <div class="col-lg-6">
+            <div class="container d-flex justify-content-center mt-3">
+              <h3>Tabla de valores</h3>
+            </div>
+            <table id="miTabla" class="table table-responsive table-hover">
+              <thead>
+                <tr>
+                  <th>Vector</th>
+                  <th>Tamaño del vector</th>
+                  <th>Tiempo de ejecución (ms)</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-6">
+            <div class="container d-flex justify-content-center mt-3">
+              <h3>Gráfica del método</h3>
+            </div>
+            <canvas id="grafica" class="grafica">
+              Tu navegador no soporta el canvas
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+    <!--  Librerias y codigo en javascript  -->
+    <script src="library/Chart/chart.js"></script>
+    <script src="library/bootstrap/js/bootstrap.js"></script>
+    <script src="library/sweetalert2/sweetalert2.js"></script>
+    <script src="library/jquery/jquery-3.7.1.min.js"></script>
+    <script src="assets/index.js"></script>
+    <script src="assets/metodo_insercion.js"></script>
+</body>
+</html>
