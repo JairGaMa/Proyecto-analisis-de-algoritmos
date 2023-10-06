@@ -18,7 +18,7 @@ function insercion1(array) { //funcion para hacer el ordenamiento borbuja
     }
     var endTime = performance.now();//toma el tiempo final de ejecucion
     var endTime2=endTime-startTime;//calcula el tiempo total de milisegundos de ejecucion
-    return endTime2.toFixed(5);//retorna el tiempo de ejecución con solo 5 decimales
+    return endTime2;//retorna el tiempo de ejecución con solo 5 decimales
 }
 
 function vector(tamano, tamano2) {
