@@ -4,6 +4,7 @@ function randomNumero(max) {
 }
 
 function seleccion1(array) { //funcion para hacer el ordenamiento seleccion
+    console.log(array);
     var startTime = performance.now();//toma el tiempo  inicial de ejecucion
     var i, j, k, menor;
     i=0;
@@ -20,6 +21,7 @@ function seleccion1(array) { //funcion para hacer el ordenamiento seleccion
         array[i]=menor;
         i++;
     }
+    console.log(array);
     var endTime = performance.now();//toma el tiempo final de ejecucion
     var endTime2=endTime-startTime;//calcula el tiempo total de milisegundos de ejecucion
     return endTime2;//retorna el tiempo de ejecución 
@@ -99,7 +101,7 @@ function seleccion2() {
             {
                 label: 'Tiempo ejecución en milisegundos',
                 data: tiempoEjecucion, // Los valores de tu gráfico
-                borderColor: 'green', // Color de la línea
+                borderColor: 'orange', // Color de la línea
                 borderWidth: 2, // Ancho de la línea
                 fill: true, // Rellenar el área debajo de la línea
             }
