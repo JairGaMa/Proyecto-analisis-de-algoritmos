@@ -4,10 +4,9 @@ function randomNumero(max) {
 }
 
 function seleccion1(array) { //funcion para hacer el ordenamiento seleccion
-    console.log(array);
-    var startTime = performance.now();//toma el tiempo  inicial de ejecucion
     var i, j, k, menor;
     i=0;
+    var startTime = performance.now();//toma el tiempo  inicial de ejecucion
     while(i<array.length-1){
         menor=array[i];
         k=i;
@@ -21,7 +20,6 @@ function seleccion1(array) { //funcion para hacer el ordenamiento seleccion
         array[i]=menor;
         i++;
     }
-    console.log(array);
     var endTime = performance.now();//toma el tiempo final de ejecucion
     var endTime2=endTime-startTime;//calcula el tiempo total de milisegundos de ejecucion
     return endTime2;//retorna el tiempo de ejecución 
