@@ -11,7 +11,7 @@ function seleccion1(array) { //funcion para hacer el ordenamiento seleccion
         menor=array[i];
         k=i;
         for(j=i+1; j<array.length;j++){
-            if(arreglo[j]<menor){
+            if(array[j]<menor){
                 menor=array[j];
                 k=j;
             }
