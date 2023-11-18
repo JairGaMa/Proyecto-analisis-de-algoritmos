@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto</title>
+  <!--  Estilos de la pagina  -->
+  <link rel="stylesheet" href="library/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/img/logo.ico" type="image/x-icon">
+</head>
+<body>
+
+  <div class="loader-section">
+    <span class="loader"></span>
+  </div>
+
+  <div id="menu-container"></div>
+
+  <!--  contenido a presentar -->
+  <div id="contenido" class=" container container-sm mt-5 rounded shadow p-3 bg-white d-flex justify-content-center">
+    <div class="container">
+      <h1>Método rápido</h1>
+        <div class="container row ">
+            <div class="container col-9 d-flex justify-content-center">
+              <label for="numero"><h4>Tamaño Vector</h4></label>
+              <input value="10" type="number" class="form-control shadow" id="numero" min="1" required pattern="[0-9]+" >
+            </div>
+            <div class="container col-3 d-flex justify-content-end">
+              <br>
+              <button type="button" class="btn btn-primary shadow" onclick="rapido2();">Calcular</button>
+            </div>
+        </div>
+      <div class="container mt-5 rounded shadow ">
+        <div class="container row">
+          <div class="col-lg-6">
+            <div class="container d-flex justify-content-center mt-3">
+              <h3>Tabla de valores</h3>
+            </div>
+            <table id="miTabla" class="table table-responsive table-hover">
+              <thead>
+                <tr>
+                  <th>Vector</th>
+                  <th>Tamaño del vector</th>
+                  <th>Tiempo de ejecución (ms)</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-6">
+            <div class="container d-flex justify-content-center mt-3">
+              <h3>Gráfica del método</h3>
+            </div>
+            <canvas id="grafica" class="grafica">
+              Tu navegador no soporta el canvas
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+    <!--  Librerias y codigo en javascript  -->
+    <script>
+      // Cargar el menú utilizando fetch
+      fetch("./menu.html")
+        .then(response => response.text())
+        .then(menuHtml => {
+          document.getElementById("menu-container").innerHTML = menuHtml;
+        });
+    </script>
+    <script src="library/Chart/chart.js"></script>
+    <script src="library/bootstrap/js/bootstrap.js"></script>
+    <script src="library/sweetalert2/sweetalert2.js"></script>
+    <script src="library/jquery/jquery-3.7.1.min.js"></script>
+    <script src="assets/index.js"></script>
+    <script src="assets/metodo_rapido.js"></script>
+</body>
+</html>
