@@ -93,7 +93,6 @@ function ordenamientoPorMezcla(unaLista) {
 }
 
 function mezcla(array) { //funcion para hacer el ordenamiento seleccion
- 
     var startTime = performance.now();//toma el tiempo  inicial de ejecucion
     ordenamientoPorMezcla(array);
     var endTime = performance.now();//toma el tiempo final de ejecucion
