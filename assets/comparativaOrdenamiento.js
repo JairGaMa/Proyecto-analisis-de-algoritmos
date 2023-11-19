@@ -36,9 +36,9 @@ function insercion(array) { //funcion para hacer el ordenamiento insercion
 }
 
 function seleccion(array) { //funcion para hacer el ordenamiento seleccion
+    var startTime = performance.now();//toma el tiempo  inicial de ejecucion
     var i, j, k, menor;
     i=0;
-    var startTime = performance.now();//toma el tiempo  inicial de ejecucion
     while(i<array.length-1){
         menor=array[i];
         k=i;
@@ -173,15 +173,15 @@ function calcular() {
         tamanoVector[i]=valor*(i+1);
         var arreglo=vector(tamanoVector[i],tamanoVector[0]*10);
         tiempoBorbuja[i]=borbuja(arreglo);
-        console.log("Finalizado borbuja "+i);
+        //console.log("Finalizado borbuja "+i);
         tiempoSeleccion[i]=seleccion(arreglo);
-        console.log("Finalizado seleccion "+i);
+        //console.log("Finalizado seleccion "+i);
         tiempoInsercion[i]=insercion(arreglo);
-        console.log("Finalizado insercion "+i);
+        //console.log("Finalizado insercion "+i);
         tiempoMezcla[i]=mezcla(arreglo);
-        console.log("Finalizado mezcla "+i);
+        //console.log("Finalizado mezcla "+i);
         tiempoRapido[i]=rapido(arreglo);
-        console.log("Finalizado rapido "+i);
+        //console.log("Finalizado rapido "+i);
     }
 
 
