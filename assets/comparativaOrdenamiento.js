@@ -123,17 +123,12 @@ function particion(arreglo, izquierda, derecha) {
         if (izquierda >= derecha) {
             return derecha;
         } else {
-            // Intercambio de elementos
-            let temp = arreglo[izquierda];
-            arreglo[izquierda] = arreglo[derecha];
-            arreglo[derecha] = temp;
-
+            arreglo[izquierda], arreglo[derecha] = arreglo[derecha], arreglo[izquierda];
             izquierda++;
             derecha--;
         }
     }
 }
-
 
 function rapido(array) { //funcion para hacer el ordenamiento seleccion
  
@@ -168,7 +163,7 @@ function calcular() {
         tiempoBorbuja[i]=borbuja(arreglo);
         tiempoInsercion[i]=insercion(arreglo);
         tiempoSeleccion[i]=seleccion(arreglo);
-        tiempoMezcla[i]=[];//mezcla(arreglo);
+        tiempoMezcla[i]=mezcla(arreglo);
         tiempoRapido[i]=rapido(arreglo);
     }
 
