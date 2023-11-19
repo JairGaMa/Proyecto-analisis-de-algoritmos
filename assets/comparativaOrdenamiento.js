@@ -123,12 +123,17 @@ function particion(arreglo, izquierda, derecha) {
         if (izquierda >= derecha) {
             return derecha;
         } else {
-            arreglo[izquierda], arreglo[derecha] = arreglo[derecha], arreglo[izquierda];
+            // Intercambio de elementos
+            let temp = arreglo[izquierda];
+            arreglo[izquierda] = arreglo[derecha];
+            arreglo[derecha] = temp;
+
             izquierda++;
             derecha--;
         }
     }
 }
+
 
 function rapido(array) { //funcion para hacer el ordenamiento seleccion
  
