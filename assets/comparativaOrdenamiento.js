@@ -110,8 +110,9 @@ function quicksort(arreglo, izquierda, derecha) {
 }
 
 function particion(arreglo, izquierda, derecha) {
-    const pivote = arreglo[izquierda];
-    while (true) {
+    const pivote = arreglo[Math.floor((izquierda + derecha) / 2)];
+    
+    while (izquierda <= derecha) {
         while (arreglo[izquierda] < pivote) {
             izquierda++;
         }
@@ -120,14 +121,14 @@ function particion(arreglo, izquierda, derecha) {
             derecha--;
         }
 
-        if (izquierda >= derecha) {
-            return derecha;
-        } else {
-            arreglo[izquierda], arreglo[derecha] = arreglo[derecha], arreglo[izquierda];
+        if (izquierda <= derecha) {
+            [arreglo[izquierda], arreglo[derecha]] = [arreglo[derecha], arreglo[izquierda]];
             izquierda++;
             derecha--;
         }
     }
+
+    return izquierda;
 }
 
 function rapido(array) { //funcion para hacer el ordenamiento seleccion
