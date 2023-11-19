@@ -163,7 +163,7 @@ function calcular() {
         tiempoBorbuja[i]=borbuja(arreglo);
         tiempoInsercion[i]=insercion(arreglo);
         tiempoSeleccion[i]=seleccion(arreglo);
-        //tiempoMezcla[i]=mezcla(arreglo);
+        tiempoMezcla[i]=[];//mezcla(arreglo);
         tiempoRapido[i]=rapido(arreglo);
     }
 
