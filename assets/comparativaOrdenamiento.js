@@ -110,9 +110,8 @@ function quicksort(arreglo, izquierda, derecha) {
 }
 
 function particion(arreglo, izquierda, derecha) {
-    const pivote = arreglo[Math.floor((izquierda + derecha) / 2)];
-    
-    while (izquierda <= derecha) {
+    const pivote = arreglo[izquierda];
+    while (true) {
         while (arreglo[izquierda] < pivote) {
             izquierda++;
         }
@@ -121,14 +120,14 @@ function particion(arreglo, izquierda, derecha) {
             derecha--;
         }
 
-        if (izquierda <= derecha) {
-            [arreglo[izquierda], arreglo[derecha]] = [arreglo[derecha], arreglo[izquierda]];
+        if (izquierda >= derecha) {
+            return derecha;
+        } else {
+            arreglo[izquierda], arreglo[derecha] = arreglo[derecha], arreglo[izquierda];
             izquierda++;
             derecha--;
         }
     }
-
-    return izquierda;
 }
 
 function rapido(array) { //funcion para hacer el ordenamiento seleccion
@@ -164,7 +163,7 @@ function calcular() {
         tiempoBorbuja[i]=borbuja(arreglo);
         tiempoInsercion[i]=insercion(arreglo);
         tiempoSeleccion[i]=seleccion(arreglo);
-        tiempoMezcla[i]=mezcla(arreglo);
+        //tiempoMezcla[i]=mezcla(arreglo);
         tiempoRapido[i]=rapido(arreglo);
     }
 
