@@ -101,39 +101,51 @@ function mezcla(array) { //funcion para hacer el ordenamiento seleccion
     return endTime2;//retorna el tiempo de ejecución 
 }
 
-function quicksort(arreglo, izquierda, derecha) {
-    if (izquierda < derecha) {
-        const indiceParticion = particion(arreglo, izquierda, derecha);
-        quicksort(arreglo, izquierda, indiceParticion);
-        quicksort(arreglo, indiceParticion + 1, derecha);
-    }
-}
-
-function particion(arreglo, izquierda, derecha) {
-    const pivote = arreglo[izquierda];
-    while (true) {
-        while (arreglo[izquierda] < pivote) {
-            izquierda++;
+function quicksort(arr, izquierda, derecha) {
+    if (arr.length > 1) {
+        izquierda = typeof izquierda !== "number" ? 0 : izquierda;
+        derecha = typeof derecha !== "number" ? arr.length - 1 : derecha;
+        var indice = particion(arr, izquierda, derecha);
+        if (izquierda < indice - 1) {
+            quicksort(arr, izquierda, indice - 1);
         }
-
-        while (arreglo[derecha] > pivote) {
-            derecha--;
-        }
-
-        if (izquierda >= derecha) {
-            return derecha;
-        } else {
-            arreglo[izquierda], arreglo[derecha] = arreglo[derecha], arreglo[izquierda];
-            izquierda++;
-            derecha--;
+        if (indice < derecha) {
+            quicksort(arr, indice, derecha);
         }
     }
+    return arr;
 }
+
+function particion(arr, izquierda, derecha) {
+    var pivote = arr[Math.floor((derecha + izquierda) / 2)];
+    var i = izquierda;
+    var j = derecha;
+    while (i <= j) {
+        while (arr[i] < pivote) {
+            i++;
+        }
+        while (arr[j] > pivote) {
+            j--;
+        }
+        if (i <= j) {
+            intercambiar(arr, i, j);
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+
+function intercambiar(arr, indiceIzquierdo, indiceDerecho) {
+    var temp = arr[indiceIzquierdo];
+    arr[indiceIzquierdo] = arr[indiceDerecho];
+    arr[indiceDerecho] = temp;
+}
+
 
 function rapido(array) { //funcion para hacer el ordenamiento seleccion
- 
     var startTime = performance.now();//toma el tiempo  inicial de ejecucion
-    quicksort(array, 0, array.length - 1);
+    quicksort(array);
     var endTime = performance.now();//toma el tiempo final de ejecucion
     var endTime2=endTime-startTime;//calcula el tiempo total de milisegundos de ejecucion
     return endTime2;//retorna el tiempo de ejecución 
@@ -161,10 +173,15 @@ function calcular() {
         tamanoVector[i]=valor*(i+1);
         var arreglo=vector(tamanoVector[i],tamanoVector[0]*10);
         tiempoBorbuja[i]=borbuja(arreglo);
-        tiempoInsercion[i]=insercion(arreglo);
+        console.log("Finalizado borbuja "+i);
         tiempoSeleccion[i]=seleccion(arreglo);
+        console.log("Finalizado seleccion "+i);
+        tiempoInsercion[i]=insercion(arreglo);
+        console.log("Finalizado insercion "+i);
         tiempoMezcla[i]=mezcla(arreglo);
+        console.log("Finalizado mezcla "+i);
         tiempoRapido[i]=rapido(arreglo);
+        console.log("Finalizado rapido "+i);
     }
 
 
@@ -178,11 +195,11 @@ function calcular() {
     var datos = [];
     for (var i = 0; i <10; i++) {
         datos.push([
-            'Vector ' + (i + 1), 
+            i + 1, 
             tamanoVector[i], 
-            tiempoBorbuja[i], 
+            tiempoBorbuja[i],
+            tiempoSeleccion[i], 
             tiempoInsercion[i],
-            tiempoSeleccion[i],
             tiempoMezcla[i],
             tiempoRapido[i]
         ]);
@@ -226,16 +243,16 @@ function calcular() {
                 fill: false, // Rellenar el área debajo de la línea
             },
             {
-                label: 'Insercion (ms)',
-                data: tiempoInsercion, // Los valores de tu gráfico
-                borderColor: 'red', // Color de la línea
+                label: 'Seleccion (ms)',
+                data: tiempoSeleccion, // Los valores de tu gráfico
+                borderColor: 'green', // Color de la línea
                 borderWidth: 2, // Ancho de la línea
                 fill: false, // Rellenar el área debajo de la línea
             },
             {
-                label: 'Seleccion (ms)',
-                data: tiempoSeleccion, // Los valores de tu gráfico
-                borderColor: 'green', // Color de la línea
+                label: 'Insercion (ms)',
+                data: tiempoInsercion, // Los valores de tu gráfico
+                borderColor: 'red', // Color de la línea
                 borderWidth: 2, // Ancho de la línea
                 fill: false, // Rellenar el área debajo de la línea
             },

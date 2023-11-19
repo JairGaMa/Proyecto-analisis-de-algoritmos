@@ -2,7 +2,7 @@
 function randomNumero(max) {
     return Math.floor(Math.random() * max) + 1;
 }
-
+/*
 function quicksort(arreglo, izquierda, derecha) {
     if (izquierda < derecha) {
         const indiceParticion = particion(arreglo, izquierda, derecha);
@@ -31,12 +31,52 @@ function particion(arreglo, izquierda, derecha) {
         }
     }
 }
+*/
+function quicksort(arr, izquierda, derecha) {
+    if (arr.length > 1) {
+        izquierda = typeof izquierda !== "number" ? 0 : izquierda;
+        derecha = typeof derecha !== "number" ? arr.length - 1 : derecha;
+        var indice = particion(arr, izquierda, derecha);
+        if (izquierda < indice - 1) {
+            quicksort(arr, izquierda, indice - 1);
+        }
+        if (indice < derecha) {
+            quicksort(arr, indice, derecha);
+        }
+    }
+    return arr;
+}
 
+function particion(arr, izquierda, derecha) {
+    var pivote = arr[Math.floor((derecha + izquierda) / 2)];
+    var i = izquierda;
+    var j = derecha;
+    while (i <= j) {
+        while (arr[i] < pivote) {
+            i++;
+        }
+        while (arr[j] > pivote) {
+            j--;
+        }
+        if (i <= j) {
+            intercambiar(arr, i, j);
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+
+function intercambiar(arr, indiceIzquierdo, indiceDerecho) {
+    var temp = arr[indiceIzquierdo];
+    arr[indiceIzquierdo] = arr[indiceDerecho];
+    arr[indiceDerecho] = temp;
+}
 
 function rapido1(array) { //funcion para hacer el ordenamiento seleccion
  
     var startTime = performance.now();//toma el tiempo  inicial de ejecucion
-    quicksort(array, 0, array.length - 1);
+    quicksort(array);//, 0, array.length - 1);
     var endTime = performance.now();//toma el tiempo final de ejecucion
     var endTime2=endTime-startTime;//calcula el tiempo total de milisegundos de ejecucion
     return endTime2;//retorna el tiempo de ejecución 
