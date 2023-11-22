@@ -2,36 +2,7 @@
 function randomNumero(max) {
     return Math.floor(Math.random() * max) + 1;
 }
-/*
-function quicksort(arreglo, izquierda, derecha) {
-    if (izquierda < derecha) {
-        const indiceParticion = particion(arreglo, izquierda, derecha);
-        quicksort(arreglo, izquierda, indiceParticion);
-        quicksort(arreglo, indiceParticion + 1, derecha);
-    }
-}
 
-function particion(arreglo, izquierda, derecha) {
-    const pivote = arreglo[izquierda];
-    while (true) {
-        while (arreglo[izquierda] < pivote) {
-            izquierda++;
-        }
-
-        while (arreglo[derecha] > pivote) {
-            derecha--;
-        }
-
-        if (izquierda >= derecha) {
-            return derecha;
-        } else {
-            arreglo[izquierda], arreglo[derecha] = arreglo[derecha], arreglo[izquierda];
-            izquierda++;
-            derecha--;
-        }
-    }
-}
-*/
 function quicksort(arr, izquierda, derecha) {
     if (arr.length > 1) {
         izquierda = typeof izquierda !== "number" ? 0 : izquierda;
