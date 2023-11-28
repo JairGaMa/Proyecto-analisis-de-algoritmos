@@ -1,15 +1,15 @@
 function arreglo(){
-    var vector = new Array(100000);
+    var vector = new Array(10000000);
     // Llenar el vector con números aleatorios entre 1 y 100,000
     for (var i = 0; i < vector.length; i++) {
-        vector[i] = Math.floor(Math.random() * 100000) + 1;
+        vector[i] = Math.floor(Math.random() * 10000000) + 1;
     }
     return vector;
 }
 
 function elemento(){
     var elemento = 0;
-    elemento = Math.floor(Math.random() * 100000) + 1;
+    elemento = Math.floor(Math.random() * 10000000) + 1;
     return elemento;
 }
 
